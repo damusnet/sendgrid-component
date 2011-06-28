@@ -111,7 +111,7 @@ class SendgridComponent extends EmailComponent {
 		
 		// To
 		if (is_array($this->to)) {
-			$message['to'] = implode(', ', array_map(array($this, '_formatAddress'), $this->to));
+			$message['to'] = array_map(array($this, '_formatAddress'), $this->to);
 		} else {
 			$message['to'] = $this->_formatAddress($this->to);
 			if (!empty($this->toname)) {
@@ -122,7 +122,7 @@ class SendgridComponent extends EmailComponent {
 		// Cc
 		if (!empty($this->cc)) {
 			if (is_array($this->cc)) {
-				$message['cc'] = implode(', ', array_map(array($this, '_formatAddress'), $this->cc));
+				$message['cc'] = array_map(array($this, '_formatAddress'), $this->cc);
 			} else {
 				$message['cc'] = $this->_formatAddress($this->cc);
 			}
@@ -131,7 +131,7 @@ class SendgridComponent extends EmailComponent {
 		// Bcc
 		if (!empty($this->bcc)) {
 			if (is_array($this->bcc)) {
-				$message['bcc'] = implode(', ', array_map(array($this, '_formatAddress'), $this->bcc));
+				$message['bcc'] = array_map(array($this, '_formatAddress'), $this->bcc);
 			} else {
 				$message['bcc'] = $this->_formatAddress($this->bcc);
 			}
